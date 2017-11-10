@@ -1,4 +1,3 @@
-import java.awt.CardLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -64,12 +63,13 @@ public class Register extends JPanel implements ActionListener {
 					
 					}
 					input.close();
+					
 					MessageDigest md = MessageDigest.getInstance("SHA-256");
 					md.update(pass.getBytes());
 					byte byteData[] = md.digest();
 					StringBuffer sb = new StringBuffer();
 					for (int i=0;i < byteData.length;i++)
-						sb.append(Integer.toString((byteData[i] & 0xFF)+ 0x100,16).substring(i));
+						sb.append(Integer.toString((byteData[i] & 0xFF)+ 0x100,16).substring(1));
 						
 					BufferedWriter output = new BufferedWriter(new FileWriter("passwords.txt"));
 					output.write(userTF.getText()+" "+sb.toString()+"\n");
