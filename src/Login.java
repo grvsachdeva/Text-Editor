@@ -8,6 +8,10 @@ import javax.swing.*;
 
 public class Login extends JPanel implements ActionListener {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JLabel userL = new JLabel("UserName : ");
 	JTextField userTF = new JTextField();
 	JLabel passL = new JLabel("Password: ");
@@ -33,8 +37,8 @@ public class Login extends JPanel implements ActionListener {
 		cl = (CardLayout)getLayout();
 	}
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-		
+		add(new Register(),"register");
+		cl.show(this, "register");
 	}
 	
 	public static void main(String[] args) {
